@@ -11,6 +11,10 @@ app = Flask(__name__)
 def main():
     return render_template('home.html', session=session, filelist=os.listdir('uploads'))
 
+@app.route("/about")
+def about():
+    return render_template('about.html', session=session)
+
 def nocache(view):
     @wraps(view)
     def no_cache(*args, **kwargs):
