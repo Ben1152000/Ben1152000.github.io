@@ -1,1 +1,93 @@
-Hello World
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>bdarnell.com</title>
+        <link rel="shortcut icon" href="static/favicon_16.ico">
+        <link rel="icon" href="static/favicon_32.ico">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--This is for nice mobile scaling-->
+        <style>
+        
+            body { /* Space out content a bit */
+                background-size: cover;
+                background-attachment: fixed;
+                background-color: rgb(0, 50, 100);
+                overscroll-behavior-y: none; /* hack to fix chrome overscrolling */
+            }
+            .header {}
+            .footer { /* Custom page footer */
+                padding: 8px;
+                color: #777;
+                position: fixed;
+                bottom: 0; 
+                left: 0;
+                right: 0;
+            }
+            .inner-body {
+                padding: 32px;
+            }
+            .copy-left { 
+                display: inline-block; 
+                text-align: right; 
+                margin: 0px; 
+                -moz-transform: scaleX(-1); 
+                -o-transform: scaleX(-1); 
+                -webkit-transform: scaleX(-1); 
+                transform: scaleX(-1); 
+                filter: FlipH; 
+                -ms-filter: “FlipH”; 
+                color: inherit;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">bdarnell.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Ben1152000"><i class="fa fa-github" style="font-size:20px"></i> Github</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="inner-body">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer bg-light">
+            <p class="d-flex" style="font-size: 10pt !important; margin-bottom: 0">
+                <span>
+                    <a class="copy-left" href="https://en.wikipedia.org/wiki/Copyleft">&copy;</a>
+                    <a href="mailto:bdarnell@ucsb.edu">Ben Darnell</a>
+                    2020
+                </span>
+            </p>
+        </footer>
+
+    </body>
+</html>
