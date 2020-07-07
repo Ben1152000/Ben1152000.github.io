@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  
+  <a class="navbar-brand ml-2" href="/">bdarnell.com</a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      {% for item in site.data.navigation %}
+        <li {% if page.url == item.link %} class="nav-item mr-1 active" {% else %} class="nav-item mr-1" {% endif %} data-toggle="collapse" data-target="#nav" aria-expanded="false" >
+          <a class="nav-link" href="{{ item.link }}">
+            {% if item.name == "Github" %} <i class="fab fa-github" style="font-size:18px"></i> {% endif %}
+            {% if item.name == "Pi" %} <i class="fab fa-raspberry-pi" style="font-size:18px"></i> {% endif %}
+            {{ item.name }}
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>

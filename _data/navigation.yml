@@ -1,0 +1,8 @@
+- name: About
+  link: /about.html
+#- name: Blag
+#  link: /blag.html
+- name: Pi
+  link: http://ben1152000.duckdns.org:8000/
+- name: Github
+  link: https://github.com/Ben1152000

@@ -1,0 +1,71 @@
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-color: rgb(85, 132, 150) !important;*/
+  background-image: url("/assets/images/background-sm.jpg");
+  overscroll-behavior-y: none; /* hack to fix chrome overscrolling */
+}
+
+main {
+  flex: auto;
+}
+
+header {
+  background-color: red; // should be invisible
+}
+
+.footnote-box {
+  display: inline-block;
+  background-color: #ffffff7f;
+  padding: 5px 10px;
+  border-radius: 0px 5px 0px 0px;
+}
+
+.footnote {
+  color: darkslategrey;
+  font-size: smaller;
+}
+
+div.content { /* Inner body */
+  background-color: #e8e8e8;
+  max-width: 768px !important;
+  height: 100%;
+}
+
+@media (min-width: 768px) { /* Customize container */
+  div.content {
+    padding: 40px 50px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  div.content {
+    padding: 40px 6.5%;
+    padding-bottom: 20px;
+  }
+}
+
+.copy-left { /* This class reverses any text */
+  display: inline-block;
+  text-align: right;
+  margin: 0px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: “FlipH”;
+}

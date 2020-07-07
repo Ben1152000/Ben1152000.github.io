@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="flag" content="stay_out_of_my_source_code_saagar">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <!-- Bootstrap: --> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico">
+    <link rel="icon" href="/assets/icons/ben-icon_32.ico">
+    <!-- Font Awesome (icons): --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    
+  </head>
+  <body>
+    <header class="sticky-top">
+      {% include navigation.html %}
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      {% include footer.html %}
+    </footer>
+  </body>
+</html>
