@@ -26,6 +26,9 @@ var mousePosX = 0;
 var mousePosY = 0;
 var mouseActive = 0;
 
+// active fragment shader
+var fragmentShader = "raytracer";
+
 window.addEventListener("load", startup, false);
 
 function resizeCanvas() {
@@ -51,7 +54,7 @@ function startup() {
     },
     {
         type: gl.FRAGMENT_SHADER,
-        id: "fragment-shader-raytracer"
+        id: "fragment-shader-" + fragmentShader
     }
   ];
 
@@ -193,3 +196,24 @@ document.onmousedown = function(mouseEvent) {
 document.onmouseup = function(mouseEvent) {
   mouseActive = 0
 }
+
+function setFragmentShader(){
+  let searchBar = document.getElementById("search");
+  //alert(input);
+  switch (searchBar.value) {
+    case "blank": 
+    case "raytracer":
+      fragmentShader = searchBar.value
+      startup();
+  }
+  searchBar.value = "";
+}
+
+document.getElementById("search-button").type = "button";
+document.getElementById("search-button").onclick = setFragmentShader;
+document.getElementById("search").addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("search-button").click();
+  }
+});

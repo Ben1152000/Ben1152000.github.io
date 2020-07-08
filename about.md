@@ -10,9 +10,8 @@ title: About
      title="This is roughly what I look like."
      style="float: right; margin-left: 20px; width: 50%" />
 
-Hi, I'm Ben Darnell. I am a student studying Computer Science in the [College of Creative Studies](https://ccs.ucsb.edu/) at the University of California, Santa Barbara. Outside of school, I enjoy making maps, unicycling, and playing bridge.
+Hi, I'm Benjamin Darnell. I am a student studying Computer Science in the [College of Creative Studies](https://ccs.ucsb.edu/) at the University of California, Santa Barbara. Outside of school, I enjoy making maps, unicycling, and playing bridge.
 
-  
 ##### Contact Me
 
 You can contact me via email at [ben@bdarnell.com](mailto:ben@bdarnell.com?subject=Re: Website).
