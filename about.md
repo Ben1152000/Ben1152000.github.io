@@ -18,4 +18,4 @@ You can contact me via email at [ben@bdarnell.com](mailto:ben@bdarnell.com?subje
 
 This website was purchased with the [Google Domains](https://domains.google/) registrar, and is hosted on [GitHub Pages](https://pages.github.com/). The code was statically generated using [Jekyll](https://jekyllrb.com/).
 
-<span class="copy-left">©</span> Ben Darnell 2020 [CC-BY-SA](https://creativecommons.org/)
+<span class="copy-left">©</span> Benjamin Darnell 2020 [CC-BY-SA](https://creativecommons.org/)
