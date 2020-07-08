@@ -15,7 +15,7 @@ Hi, I'm Ben Darnell. I am a student studying Computer Science in the [College of
   
 ##### Contact Me
 
-You can contact me via email at [bdarnell@ucsb.edu](mailto:bdarnell@ucsb.edu?subject=Re: Website).
+You can contact me via email at [ben@bdarnell.com](mailto:ben@bdarnell.com?subject=Re: Website).
 
 This website was purchased with the [Google Domains](https://domains.google/) registrar, and is hosted on [GitHub Pages](https://pages.github.com/). The code was statically generated using [Jekyll](https://jekyllrb.com/).
 
