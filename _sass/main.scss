@@ -49,3 +49,12 @@ header {
   filter: FlipH;
   -ms-filter: “FlipH”;
 }
+
+#search-box {
+  display: flex;
+  flex-direction: row;
+}
+
+#search {
+  flex: 1;
+}
