@@ -23,13 +23,14 @@ email: bdarnell@ucsb.edu
 description: >- # this means to ignore newlines until "baseurl:"
   This is my personal website.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://Ben1152000.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://bdarnell.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Ben1152000
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
