@@ -297,81 +297,84 @@ title: bdarnell.com
   
 </script>
 
-<!-- This script is not run: -->
-<script id="fragment-shader-texture" type="x-shader/x-fragment">
-  precision mediump float;
-  varying vec2 v_coords;
-  uniform sampler2D u_sampler;
-  void main() {
-    gl_FragColor = texture2D(u_sampler, v_coords);
-  }
-</script>
-
-<!-- This script is not run: -->
-<script id="fragment-shader-conway" type="x-shader/x-fragment">
-  // Conway's game of life
-
+<script id="fragment-shader-fractal" type="x-shader/x-fragment">
   #ifdef GL_ES
     precision highp float;
   #endif
+
+  #define TAU 6.28318
+
+  #define NUM_COLOR 50.0
+  #define MAX_ITER 200
+  
+  int mandlebrot( vec2 c ) {
+    int i = 0;
+    vec2 z = vec2(0);
+      
+      for (int i = 0; i < MAX_ITER; i++) {
+          z = vec2(z.x*z.x-z.y*z.y, 2.0*z.x*z.y) + c;
+          if (length(z) >= 2.0) { return i; }
+      }
+      
+      return -1;
+      
+  }
+  
+  #define RAINBOW 0
+  #define COVFEFE 1
+  #define ZEBRA 2
+  
+  vec3 color( int scheme, float x ) {
+    if (scheme == RAINBOW) {
+      return sqrt((sin(TAU*(x+vec3(0,1,2)/3.))+1.0)/2.0);
+    }
+    if (scheme == COVFEFE) {
+      return 0.5 + 0.5*cos(2.7+x*TAU + vec3(0.0,.6,1.0));
+    }
+    if (scheme == ZEBRA) {
+      return vec3(1);
+    }
+  }
+  
+  vec3 simulate( vec2 coord ) {
+    int iterations = mandlebrot(coord);
+    if (iterations < 0) {
+      return vec3(0);
+    } else {
+      return color(RAINBOW, mod(float(iterations), NUM_COLOR) / NUM_COLOR);
+    }
+  }
+  
+  // Frame Coordinates: (zoom, lowerLeft, upperRight, origin)
+  #define ZR 1.25
+  #define LL vec2(-2.0, -1.0)
+  #define UR vec2(1.0, 1.0)
+  #define OR vec2(0.001643721971153, 0.822467633298876)
+  #define RES vec2(800, 500)
+  
+  vec2 map( vec2 fragCoord, vec2 resolution, float time ) {
+    vec2 lowerLeft = (LL-OR)*pow(ZR,-time)+OR;
+    vec2 upperRight = (UR-OR)*pow(ZR,-time)+OR;
+    return lowerLeft + (upperRight - lowerLeft) * fragCoord/RES;
+  }
 
   varying vec2 v_coords;
   uniform float time;
   uniform float width;
   uniform float height;
-  uniform float mouseX;
-  uniform float mouseY;
 
-  uniform sampler2D backbuffer;
-
-  vec4 live = vec4(0.5,1.0,0.7,1.);
-  vec4 dead = vec4(0.,0.,0.,1.);
-  vec4 blue = vec4(0.,0.,1.,1.);
-
-  void main( void ) {
-
+  void main() {
     vec2 resolution = vec2(width, height);
-    vec2 mouse = vec2(mouseX, height - mouseY) / resolution.xy;
-    vec2 position = v_coords.xy;
-    vec2 pixel = 1./resolution;
-
-    if (length(position-mouse) < 0.01) {
-      float rnd1 = mod(fract(sin(dot(position + time * 0.001, vec2(14.9898,78.233))) * 43758.5453), 1.0);
-      if (rnd1 > 0.5) {
-        gl_FragColor = live;
-      } else {
-        gl_FragColor = blue;
-      }
-    } else {
-      float sum = 0.;
-      sum += texture2D(backbuffer, position + pixel * vec2(-1., -1.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(-1., 0.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(-1., 1.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(1., -1.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(1., 0.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(1., 1.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(0., -1.)).g;
-      sum += texture2D(backbuffer, position + pixel * vec2(0., 1.)).g;
-      vec4 me = texture2D(backbuffer, position);
-
-      if (me.g <= 0.1) {
-        if ((sum >= 2.9) && (sum <= 3.1)) {
-          gl_FragColor = live;
-        } else if (me.b > 0.004) {
-          gl_FragColor = vec4(0., 0., max(me.b - 0.004, 0.25), 0.);
-        } else {
-          gl_FragColor = dead;
-        }
-      } else {
-        if ((sum >= 1.9) && (sum <= 3.1)) {
-          gl_FragColor = live;
-        } else {
-          gl_FragColor = blue;
-        }
-      }
-    }
+    vec2 fragCoord = v_coords * resolution;
     
+    gl_FragColor = vec4(
+      (simulate(map(fragCoord, resolution, time)) + 
+      simulate(map(fragCoord + vec2(0, 0.5), resolution, time)) + 
+      simulate(map(fragCoord + vec2(0.5, 0), resolution, time)) + 
+      simulate(map(fragCoord + vec2(0.5, 0.5), resolution, time))) / 4.0, 1.0);
+    //gl_FragColor = vec4(simulate(map(fragCoord, resolution, time)), 1.0);
   }
+  
 </script>
 
 <script src="/assets/js/graphics.js"></script>

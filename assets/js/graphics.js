@@ -40,7 +40,7 @@ window.addEventListener("load", function(event) {
   if (window.mobileCheck()) {
     fragmentShader = "blank";
   } else {
-    fragmentShader = "raytracer";
+    fragmentShader = "fractal";
   }
   startup();
 });
@@ -217,6 +217,7 @@ function setFragmentShader(){
   switch (searchBar.value.toLowerCase()) {
     case "blank": 
     case "raytracer":
+    case "fractal":
       fragmentShader = searchBar.value.toLowerCase()
       startup();
   }
