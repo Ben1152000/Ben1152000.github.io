@@ -3,8 +3,27 @@
   margin-bottom: 30px;
 }
 
-div.post {
+div.blag-post {
   margin-bottom: 30px;
+}
+
+div.blag-post-body {
+  display: flex
+}
+
+div.blag-post-left {
+  float: left;
+}
+
+div.blag-post-right {
+  float: right;
+  flex: 0 0 30%;
+}
+
+img.blag-post-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 #next-button {

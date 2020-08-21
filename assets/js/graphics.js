@@ -211,24 +211,7 @@ document.onmouseup = function(mouseEvent) {
   mouseActive = 0
 }
 
-function setFragmentShader(){
-  let searchBar = document.getElementById("search");
-  //alert(input);
-  switch (searchBar.value.toLowerCase()) {
-    case "blank": 
-    case "raytracer":
-    case "fractal":
-      fragmentShader = searchBar.value.toLowerCase()
-      startup();
-  }
-  searchBar.value = "";
+function setFragmentShader(shader){
+  fragmentShader = shader.toLowerCase()
+  startup();
 }
-
-document.getElementById("search-button").type = "button";
-document.getElementById("search-button").onclick = setFragmentShader;
-document.getElementById("search").addEventListener("keydown", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    document.getElementById("search-button").click();
-  }
-});
