@@ -40,7 +40,7 @@ window.addEventListener("load", function(event) {
   if (window.mobileCheck()) {
     fragmentShader = "blank";
   } else {
-    fragmentShader = "fractal";
+    fragmentShader = "deepfractal";
   }
   startup();
 });
