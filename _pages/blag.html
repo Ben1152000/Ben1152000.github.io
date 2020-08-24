@@ -1,0 +1,43 @@
+---
+layout: page
+title: Blag
+permalink: /blag/
+---
+<h1 id="blag-title">
+  Blag &nbsp;
+  <i class="far fa-comment-alt"></i>
+</h1>
+
+
+<p id="blag-desc">Self-deprecating joke here.</p>
+
+{% for post in site.posts %}
+  <div class="card blag-post">
+    <div class="card-body blag-post-body">
+
+      <div class="blag-post-left">
+        <h4 class="card-title">
+          <a href="{{ post.url }}">{{ post.title }}</a> &nbsp;
+        </h4>
+        <p style="margin-bottom: 0.5rem"><i>{{ post.date | date: "%B %-d %Y" }}</i></p>
+        <p class="card-text">{{ post.excerpt | strip_html }}</p>
+      </div>
+
+      {% if post.image %}
+      <div class="blag-post-right">
+        <img class="card-image blag-post-image" src="{{ post.image }}"/>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% endfor %}
+
+{% assign numposts = site.posts | size %}
+{% if numposts == 0 %} 
+<div class="card post">
+  <div class="card-body">
+    <p>There is nothing here...</p>
+  </div>
+</div>
+{% endif %}

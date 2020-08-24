@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand ml-2" href="/">bdarnell.com</a>
+  <a class="navbar-brand ml-2" href="/">
+    bdarnell.com
+  </a>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -15,7 +17,9 @@
             {% if item.name == "Github" %} <i class="fab fa-github" style="font-size:18px"></i> {% endif %}
             {% if item.name == "Pi" %} <i class="fab fa-raspberry-pi" style="font-size:18px"></i> {% endif %}
             {{ item.name }}
-            <span class="sr-only">(current)</span>
+            {% if page.url == item.link %}
+              <span class="sr-only">(current)</span>
+            {% endif %}
           </a>
         </li>
       {% endfor %}
