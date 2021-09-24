@@ -1,10 +1,11 @@
 - name: Lumina
   link: http://pi.bdarnell.com:7990
   image: /assets/images/projects/lumina.jpg
-  description: A raspberry-pi web server to remotely control LED strips. <button class="btn btn-light mx-1 p-1" style="display:inline" href="www.google.com">Github</button>
+  description: A raspberry-pi web server to remotely control LED strips.
 
 - name: Sootty
   link: https://github.com/Ben1152000/sootty
+  image: /assets/images/projects/sootty.png
   description: Command-line tool that converts VCD waveforms to vector images and displays them.
 
 - name: π2c
@@ -23,5 +24,4 @@
 
 - name: Go (Url Shortener)
   link: http://go.bdarnell.com
-  image: /assets/images/projects/go.png
   description: A toy URL-Shortener.

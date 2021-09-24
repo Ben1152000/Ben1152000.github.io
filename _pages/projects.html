@@ -9,7 +9,9 @@ permalink: /projects/
 <div class="card-columns">
   {% for project in site.data.projects %}
     <a href="{{ project.link }}" class="project btn card mb-3 p-0" type="button">
-      <img class="card-img-top card-image" src="{{ project.image }}" alt="{{ project.name }}"/>
+      {% if project.image %}
+        <img class="card-img-top card-image" src="{{ project.image }}" alt="{{ project.name }}"/>
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ project.name }}</h5>
         <p class="card-text">{{ project.description }}</p>
