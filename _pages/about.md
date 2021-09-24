@@ -11,7 +11,7 @@ permalink: /about/
      title="This is roughly what I look like."
      style="float: right; margin-left: 20px; width: 50%" />
 
-Hi, I'm Benjamin Darnell. I am a student studying Computer Science in the [College of Creative Studies](https://ccs.ucsb.edu/) at the University of California, Santa Barbara. Outside of school, I enjoy making maps, unicycling, and playing bridge.
+Hi, I'm Benjamin Darnell. I am a student studying Computer Science in the [College of Creative Studies](https://ccs.ucsb.edu/) at the University of California, Santa Barbara. Outside of school, I enjoy making maps, unicycling, and playing bridge. I am on the organizing team of [SB Hacks](https://sbhacks.com) and I also am the current president of the [UCSB Juggling Club](https://juggling.bdarnell.com)
 
 ##### Contact Me
 
