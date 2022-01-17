@@ -6,7 +6,7 @@ permalink: /about/
 # About Me
 
 
-<img src="/assets/images/profile-core.webp"
+<img src="/assets/images/portrait.jpg"
      alt="Personal Photo"
      title="This is roughly what I look like."
      style="float: right; margin-left: 20px; width: 50%" />
