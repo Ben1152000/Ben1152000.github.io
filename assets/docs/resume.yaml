@@ -1,0 +1,28 @@
+
+Employer: University of California, Santa Barbara
+Title: Research Assistant
+Start: 06/01/2021
+End: 09/01/2021
+Location: Santa Barbara, CA
+Description: Paid research assistant in the UCSB Computer Architectures Lab (ArchLab) under Professor Jonathan Balkind. Contributed to a paper (in progress) using program synthesis for processor development. Designed a pipelined RISC-V core and extended a hardware description language to support holes for sketch-based program synthesis. Created Sootty, a VCD waveform viewer for hardware simulations. Added support for integration with PyRTL. Currently mentoring undergraduate students on this project.
+
+Employer: Jobvite, Inc.
+Title: Engineering Intern
+Start: 06/01/2019
+End: 09/01/2019
+Location: San Mateo, CA
+Description: Built a framework for Automation testing of Jobvite’s Candidate Self-Scheduling web-interface in Java using the Selenium webdriver, and automated a suite of QA test cases.
+
+Employer: Baobab Studios
+Title: Engineering Intern
+Start: 05/01/2018
+End: 09/01/2018
+Location: Redwood City, CA
+Description: Performed QA testing on scenes in Crow: the Legend, a Unity VR experience. Wrote scripts to automate audio/video conversion with ffmpeg to support mobile platforms.
+
+Employer: Los Alamos National Laboratory
+Title: Lab Assistant
+Start: 06/01/2017
+End: 08/21/2017
+Location: Los Alamos, NM
+Description: Synthesized a quantum dot display for the Bradbury Science Museum and developed code to analyze image data with computer vision using Igor.
