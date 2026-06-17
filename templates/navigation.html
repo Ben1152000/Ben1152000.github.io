@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+  <a class="navbar-brand ml-2" href="/">
+    bdarnell.com
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      {% for item in config.extra.navigation %}
+        {% set is_current = current_path is defined and current_path == item.link %}
+        <li {% if is_current %} class="nav-item mr-1 active" {% else %} class="nav-item mr-1" {% endif %} data-toggle="collapse" data-target="#nav" aria-expanded="false" >
+          <a class="nav-link" href="{{ item.link | safe }}">
+            {% if item.name == "Github" %} <i class="fab fa-github" style="font-size:18px"></i> {% endif %}
+            {% if item.name == "Pi" %} <i class="fab fa-raspberry-pi" style="font-size:18px"></i> {% endif %}
+            {{ item.name }}
+            {% if is_current %}
+              <span class="sr-only">(current)</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
+    <form id="search-box" class="form-inline my-md-0 my-2 ">
+      <input id="search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+      <button id="search-button" class="btn btn-outline-info" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>

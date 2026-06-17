@@ -1,0 +1,278 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Benjamin Darnell",
+    "label": "Computer Science Graduate Researcher",
+    "email": "ben@bdarnell.com",
+    "phone": "+1 (408) 797-8394",
+    "url": "https://bdarnell.com",
+    "location": {
+      "address": "507 W Green St. Apt A",
+      "city": "Urbana",
+      "region": "IL",
+      "postalCode": "61801",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "Ben1152000",
+        "url": "https://github.com/Ben1152000"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "benjamin-darnell-33121b162",
+        "url": "https://www.linkedin.com/in/benjamin-darnell-33121b162/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "University of Illinois at Urbana-Champaign",
+      "position": "Graduate Research Assistant",
+      "startDate": "2022-09",
+      "endDate": "2025-12",
+      "summary": "Advised by Prof. Vikram Adve at UIUC",
+      "highlights": [
+        "Architected a high-performance graph partitioning engine in Rust to solve complex, multi-objective partitioning problems using heuristic-based local search; presented poster at CSL Student Conference '26.",
+        "Led AI research project on developing LLM-based code generation techniques for low-resource programming languages, with applications in IT automation and agriculture; authored 'An Empirical Comparison of Code Generation Approaches for Ansible', peer-reviewed paper presented at InteNSE '24 (ACM/IEEE)."
+      ]
+    },
+    {
+      "name": "University of Illinois at Urbana-Champaign",
+      "position": "Graduate Teaching Assistant",
+      "startDate": "2023-09",
+      "endDate": "2024-01",
+      "summary": "School of Computing, UIUC",
+      "highlights": [
+        "CS 421: Developed course material, graded papers, and tutored students in advanced Compilers course."
+      ]
+    },
+    {
+      "name": "UCSB ArchLab",
+      "position": "Undergraduate Research Assistant",
+      "startDate": "2021-01",
+      "endDate": "2022-03",
+      "summary": "Advised by Prof. Jonathan Balkind",
+      "highlights": [
+        "Created Sootty, an open-source VCD waveform viewer for hardware simulations in the terminal. Added support for integration with PyRTL; mentored undergraduate students on the project.",
+        "Contributed to a paper using program synthesis for processor development. Designed a pipelined RISC-V core and extended a hardware description language to support holes for sketch-based program synthesis.",
+        "Worked with a graduate student to create a formalization for system-on-chip protocols."
+      ]
+    },
+    {
+      "name": "UCSB Programming Languages Lab",
+      "position": "Undergraduate Research Assistant",
+      "startDate": "2020-06",
+      "endDate": "2021-01",
+      "summary": "Advised by Prof. Ben Hardekopf",
+      "highlights": [
+        "Extended MOSEL, a language of monadic second-order logic on strings, to describe DFA, NFA, and regex problems. Designed and created a C++ command-line tool to automate problem generation for use in upper-division Formal Languages classes.",
+        "Designed automated practice-problem generation tools for CS education, focusing on algorithmic logic and student engagement. Presented research poster at RACA-CON '20."
+      ]
+    },
+    {
+      "name": "University of California, Santa Barbara",
+      "position": "Undergraduate Teaching Assistant",
+      "startDate": "2020-01",
+      "endDate": "2021-12",
+      "summary": "Department of Computer Science, UCSB",
+      "highlights": [
+        "Mentored students in upper-division Data Structures & Algorithms and Object-Oriented Programming over five quarters; led technical review sessions and evaluated complex assignments.",
+        "Graded assignments and gave personalized feedback to students.",
+        "Led group review sessions and provided one-on-one support."
+      ]
+    },
+    {
+      "name": "Jobvite, Inc.",
+      "position": "Software Engineering Intern",
+      "startDate": "2019-06",
+      "endDate": "2019-09",
+      "highlights": [
+        "Built integration testing framework for Jobvite's Candidate Scheduling interface with Selenium WebDriver.",
+        "Automated a suite of QA test cases; collaborated with other developers using Git in an agile development environment."
+      ]
+    },
+    {
+      "name": "Baobab Studios",
+      "position": "VR Engineering Intern",
+      "startDate": "2018-05",
+      "endDate": "2018-09",
+      "highlights": [
+        "Performed QA testing on scenes in Crow: the Legend, an Oculus Virtual Reality game.",
+        "Wrote scripts to automate audio/video conversion with ffmpeg to support mobile platforms."
+      ]
+    },
+    {
+      "name": "Los Alamos National Laboratory",
+      "position": "Laboratory Assistant",
+      "startDate": "2017-06",
+      "endDate": "2017-08",
+      "highlights": [
+        "Synthesized a quantum dot display for the Bradbury Science Museum.",
+        "Wrote feature identification code to analyze experimental image data using Igor."
+      ]
+    },
+    {
+      "name": "National Park Service — Youth Conservation Corps",
+      "position": "Conservation Crew Member",
+      "startDate": "2016-06",
+      "endDate": "2016-07",
+      "highlights": [
+        "Performed hands-on trail maintenance and construction in Yellowstone National Park.",
+        "Gained experience in forest management, land stewardship, and safety protocols through fieldwork and training."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Free and Open Source Silicon Foundation",
+      "position": "Mentor",
+      "startDate": "2022-06",
+      "endDate": "2022-09",
+      "summary": "Google Summer of Code",
+      "highlights": [
+        "Supervised multiple students in the development and release of an open-source CLI-based waveform viewer."
+      ]
+    },
+    {
+      "organization": "SB Hacks",
+      "position": "Director",
+      "startDate": "2020-01",
+      "endDate": "2021-12",
+      "summary": "UC Santa Barbara's inclusive, student-run hackathon",
+      "highlights": [
+        "Led a cross-functional team of 15 organizers to run a large-scale virtual hackathon; oversaw end-to-end logistics including technical infrastructure, budget management, and stakeholder outreach for 500+ participants."
+      ]
+    },
+    {
+      "organization": "Womxn/Hacks",
+      "position": "Mentor",
+      "startDate": "2019",
+      "endDate": "2020",
+      "highlights": [
+        "Mentored students at all-female-identifying hackathon."
+      ]
+    },
+    {
+      "organization": "College of Creative Studies, UCSB",
+      "position": "Undergraduate Mentor",
+      "startDate": "2021-01",
+      "endDate": "2022-03"
+    },
+    {
+      "organization": "UCSB IEEE Chapter",
+      "position": "Member",
+      "startDate": "2020-01",
+      "endDate": "2022-03"
+    },
+    {
+      "organization": "Juggling Club at UCSB",
+      "position": "President",
+      "url": "https://ucsbjuggling.org/",
+      "startDate": "2020-01",
+      "endDate": "2022-03"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Illinois at Urbana-Champaign",
+      "area": "Computer Science",
+      "studyType": "M.S.",
+      "startDate": "2022-09",
+      "endDate": "2026-05"
+    },
+    {
+      "institution": "Technion, Israel Institute of Technology",
+      "studyType": "International Student Exchange Program",
+      "startDate": "2022-03",
+      "endDate": "2022-08",
+      "courses": [
+        "Signal Processing",
+        "Automata Theory"
+      ]
+    },
+    {
+      "institution": "University of California, Santa Barbara",
+      "url": "https://ccs.ucsb.edu/about",
+      "area": "Computing",
+      "studyType": "B.S.",
+      "startDate": "2018",
+      "endDate": "2022",
+      "score": "Highest Honors",
+      "courses": [
+        "Formal Languages & Compilers",
+        "Approximation Algorithms",
+        "Computational Geometry",
+        "Machine Learning & AI",
+        "Computer Architecture",
+        "Operating Systems",
+        "Scalable Web Systems"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "UCEAP Memorial Scholarship, in Memory of John Marcum",
+      "date": "2021",
+      "awarder": "UCEAP",
+      "summary": "Awarded for international exchange study at Technion, Israel Institute of Technology."
+    },
+    {
+      "title": "University of California Regents Scholarship",
+      "date": "2018",
+      "awarder": "University of California",
+      "summary": "Awarded to top 1% of admitted students."
+    },
+    {
+      "title": "CCS Summer Undergraduate Research Fellowship",
+      "date": "2020",
+      "awarder": "College of Creative Studies, UCSB"
+    },
+    {
+      "title": "National Merit Commended Scholar",
+      "date": "2018"
+    }
+  ],
+  "publications": [
+    {
+      "name": "An Empirical Comparison of Code Generation Approaches for Ansible",
+      "publisher": "InteNSE '24 (ACM/IEEE)",
+      "releaseDate": "2024",
+      "url": "https://dl.acm.org/doi/10.1145/3643661.3643951",
+      "summary": "Peer-reviewed paper on LLM-based code generation techniques for low-resource programming languages, with applications in IT automation and agriculture."
+    },
+    {
+      "name": "Control Logic Synthesis: Drawing the Rest of the OWL",
+      "url": "https://doi.org/10.1145/3622781.3674170",
+      "summary": "Zachary D. Sisco, Andrew David Alex, Zechen Ma, Yeganeh Aghamohammadi, Boming Kong, Benjamin Darnell, Timothy Sherwood, Ben Hardekopf, and Jonathan Balkind. La Jolla, CA, USA. ACM, New York, NY, USA, 16 pages.",
+      "publisher": "29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 4 (ASPLOS '24)",
+      "releaseDate": "2024-04-27"
+    },
+    {
+      "name": "Automatic Problem Creation",
+      "publisher": "Research and Creative Activities Conference (RACA-CON)",
+      "releaseDate": "2020-11",
+      "url": "https://raca-con.ccs.ucsb.edu/projects/automatic-problem-creation",
+      "summary": "Poster presented at RACA-CON 2020, Santa Barbara, CA. Tools for automating CS theory problem generation."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "keywords": ["Python", "C", "C++", "Rust", "Java", "OCaml", "JavaScript", "TypeScript"]
+    },
+    {
+      "name": "Web & Markup",
+      "keywords": ["HTML", "CSS", "React", "LaTeX"]
+    },
+    {
+      "name": "Tools & Platforms",
+      "keywords": ["Git", "Docker", "Unix Shell", "LLVM"]
+    },
+    {
+      "name": "Specializations",
+      "keywords": ["Compiler Design", "LLM-Based Code Generation", "Algorithm Design & Optimization"]
+    }
+  ]
+}

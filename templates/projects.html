@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Projects{% endblock title %}
+{% block content %}
+<div class="container content">
+  <h1 id="blag-title">Projects &nbsp;</h1>
+  <p id="blag-desc">Some stuff I've been working on:</p>
+
+  <div class="card-columns">
+    {% for project in config.extra.projects %}
+      <a href="{{ project.link | safe }}" class="project btn card mb-3 p-0" type="button">
+        {% if project.image is defined %}
+          <img class="card-img-top card-image" src="{{ project.image | safe }}" alt="{{ project.name }}"/>
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ project.name }}</h5>
+          <p class="card-text">{{ project.description }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

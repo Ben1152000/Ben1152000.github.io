@@ -1,0 +1,70 @@
+# The URL the site will be built for
+base_url = "https://bdarnell.com"
+
+title = "bdarnell.com"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[markdown]
+# Raw HTML in markdown (e.g. the <img> on the About page) is rendered by default.
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+
+# --- Site navigation (was Jekyll _data/navigation.yml) ---
+[[extra.navigation]]
+name = "About"
+link = "/about/"
+
+[[extra.navigation]]
+name = "Projects"
+link = "/projects/"
+
+[[extra.navigation]]
+name = "Pi"
+link = "http://ben1152000.duckdns.org:8000/"
+
+[[extra.navigation]]
+name = "Github"
+link = "https://github.com/Ben1152000"
+
+# --- Projects (was Jekyll _data/projects.yml) ---
+[[extra.projects]]
+name = "Lumina"
+link = "http://pi.bdarnell.com:7990"
+image = "/assets/images/projects/lumina.jpg"
+description = "A raspberry-pi web server to remotely control LED strips."
+
+[[extra.projects]]
+name = "Sootty"
+link = "https://github.com/Ben1152000/sootty"
+image = "/assets/images/projects/sootty.png"
+description = "Command-line tool that converts VCD waveforms to vector images and displays them."
+
+[[extra.projects]]
+name = "π2c"
+link = "https://github.com/Ben1152000/py2c"
+description = "A prototype python-to-c transpiler."
+
+[[extra.projects]]
+name = "Cartesia"
+link = "http://cartesia.bdarnell.com"
+image = "/assets/images/projects/cartesia.png"
+description = "An online, interactive D&D mapping tool developed during the COVID-19 pandemic to assist GM's in holding remote games."
+
+[[extra.projects]]
+name = "Tetris"
+link = "//tetris.bdarnell.com"
+image = "/assets/images/projects/tetris.png"
+description = "A web-based tetris game and artificial intelligence."
+
+[[extra.projects]]
+name = "Go (Url Shortener)"
+link = "http://go.bdarnell.com"
+description = "A toy URL-Shortener."

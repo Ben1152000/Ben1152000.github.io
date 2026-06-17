@@ -1,0 +1,27 @@
+
+div.content { /* Inner body */
+  background-color: #e8e8e8f0;
+  max-width: 768px !important;
+  height: 100%;
+}
+
+@media (min-width: 768px) { /* Customize container */
+  div.content {
+    padding: 40px 50px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  div.content {
+    padding: 40px 6.5%;
+    padding-bottom: 20px;
+  }
+}
+
+div.jumbotron {
+  background-color: #e8e8e8f0;
+  margin: 32px auto;
+  max-width: 576px;
+  text-align: center;
+}

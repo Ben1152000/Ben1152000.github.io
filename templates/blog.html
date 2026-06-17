@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Blag{% endblock title %}
+{% block content %}
+<div class="container content">
+  <h1 id="blag-title">
+    Blag &nbsp;
+    <i class="far fa-comment-alt"></i>
+  </h1>
+
+  <p id="blag-desc">Self-deprecating joke here.</p>
+
+  {% for post in section.pages %}
+    <div class="card blag-post">
+      <div class="card-body blag-post-body">
+
+        <div class="blag-post-left">
+          <h4 class="card-title">
+            <a href="{{ post.permalink | safe }}">{{ post.title }}</a> &nbsp;
+          </h4>
+          <p style="margin-bottom: 0.5rem"><i>{{ post.date | date(format="%B %-d %Y") }}</i></p>
+          <p class="card-text">{{ post.description }}</p>
+        </div>
+
+        {% if post.extra.image is defined %}
+        <div class="blag-post-right">
+          <img class="card-image blag-post-image" src="{{ post.extra.image | safe }}"/>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  {% endfor %}
+
+  {% if section.pages | length == 0 %}
+  <div class="card post">
+    <div class="card-body">
+      <p>There is nothing here...</p>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
