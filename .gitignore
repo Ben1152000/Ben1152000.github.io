@@ -1,0 +1,8 @@
+# --- Zola ---
+/public/
+/static/processed_images/
+
+.DS_Store
+.vscode/
+.idea/
+*.log
