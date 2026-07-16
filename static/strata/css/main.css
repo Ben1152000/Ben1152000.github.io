@@ -2598,8 +2598,8 @@ input, select, textarea {
 		background-repeat: repeat, no-repeat;
 		/* background-size: auto,								100%; */
 		background-size: auto calc(12vw + 100vh);
-		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+		color: rgba(255, 255, 255, 0.8);
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 		height: 100%;
 		left: 0;
 		padding: 8em 4em;
@@ -2634,7 +2634,7 @@ input, select, textarea {
 		}
 
 		#header h1 {
-			color: rgba(255, 255, 255, 0.9);
+			color: rgba(255, 255, 255, 0.8);
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;

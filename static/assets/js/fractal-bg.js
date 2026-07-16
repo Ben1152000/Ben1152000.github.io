@@ -27,7 +27,7 @@
 
     const program = buildShaderProgram(gl, [
       { type: gl.VERTEX_SHADER, id: "vertex-shader" },
-      { type: gl.FRAGMENT_SHADER, id: "fragment-shader-deepfractal" }
+      { type: gl.FRAGMENT_SHADER, id: "fragment-shader-mandelbrot" }
     ]);
 
     const buffer = gl.createBuffer();

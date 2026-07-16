@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-{% import "components/macros.html" as ui %}
 {% block title %}{{ section.extra.name }}{% endblock title %}
 
-{# About page. Left panel defaults to the identity component (from base.html).
-   Content lives in content/_index.md [extra]; education + experience rows use the entry macro. #}
+{# About page. Default sidebar (identity) comes from base.html.
+   Content lives in content/_index.md [extra]. Education + experience share the same row markup. #}
 {% block main %}
 {% set data = section.extra %}
 
@@ -24,7 +23,13 @@
     <section id="education">
       <div class="container">
         <h2>Education</h2>
-        {% for e in data.education %}{{ ui::entry(title=e.degree, subtitle=e.institution, logo=e.logo | default(value=""), dates=e.dates | default(value=""), note=e.note | default(value="")) }}{% endfor %}
+        {% for e in data.education %}
+        <p>
+          {% if e.logo %}<img src="{{ e.logo | safe }}" width="9%" style="float:left;margin-right:1em;border-radius:5px;" alt="" />{% endif %}
+          <b>{{ e.degree }}</b>{% if e.dates %}<span style="margin: 0 0.6em;">&middot;</span><span class="meta">{{ e.dates }}</span>{% endif %}<br />
+          {{ e.institution }}{% if e.note %}<br />{{ e.note | safe }}{% endif %}
+        </p>
+        {% endfor %}
       </div>
     </section>
     {% endif %}
@@ -34,7 +39,14 @@
     <section id="experience">
       <div class="container">
         <h2>Experience</h2>
-        {% for x in data.experience %}{{ ui::entry(title=x.role, subtitle=x.org, logo=x.logo | default(value=""), dates=x.dates | default(value=""), note=x.highlights | default(value=[]) | join(sep="<br />")) }}{% endfor %}
+        {% for x in data.experience %}
+        {% set note = x.highlights | default(value=[]) | join(sep="<br />") %}
+        <p>
+          {% if x.logo %}<img src="{{ x.logo | safe }}" width="9%" style="float:left;margin-right:1em;border-radius:5px;" alt="" />{% endif %}
+          <b>{{ x.role }}</b>{% if x.dates %}<span style="margin: 0 0.6em;">&middot;</span><span class="meta">{{ x.dates }}</span>{% endif %}<br />
+          {{ x.org }}{% if note %}<br />{{ note | safe }}{% endif %}
+        </p>
+        {% endfor %}
       </div>
     </section>
     {% endif %}

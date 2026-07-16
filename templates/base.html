@@ -2,9 +2,9 @@
 <!--
   Design: Strata by HTML5 UP (html5up.net | @ajlkn)
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license).
-  Design shell only. The page is composed from components in templates/components/:
-    - left panel  : the "sidebar" block (default = left-identity; projects = left-fractal)
-    - nav bar     : navbar.html (shared)
+  Design shell only. The page is composed of three regions:
+    - left panel  : the "sidebar" block (identity inline here; projects.html overrides w/ the fractal)
+    - nav bar     : inline below (data-driven from [[extra.nav]])
     - main panel  : the "main" block (defined inline in home.html / projects.html)
   Shared identity (avatar, social) comes from [extra.profile] in config.toml; per-page
   name/headline/email come from the current page's own [extra] (fallback: the home page).
@@ -16,8 +16,8 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico" />
-    <link rel="icon" href="/assets/icons/ben-icon_32.ico" />
+    <!-- <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico" /> -->
+    <!-- <link rel="icon" href="/assets/icons/ben-icon_32.ico" /> -->
     <!-- Preload the header background per layout so the first paint isn't a fallback flash. -->
     <link rel="preload" as="image" href="/assets/images/bg-sm.webp" media="(min-width: 981px)" />
     <link rel="preload" as="image" href="/assets/images/bg-md.webp" media="(max-width: 980px)" />
@@ -25,7 +25,7 @@
     <style>
       /* Slight extra darkening over the sidebar / footer background image.
          One knob: raise --bg-darken toward 1 for darker, lower toward 0 for lighter. */
-      :root { --bg-darken: 0.1; }
+      :root { --bg-darken: 0.15; }
       #header::after {
         content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
         background: rgba(0, 0, 0, var(--bg-darken));
@@ -44,11 +44,41 @@
 
     <!-- Left panel -->
       <header id="header">
-        {% block sidebar %}{% include "components/left-identity.html" %}{% endblock sidebar %}
+        {# Default sidebar: identity (avatar + name + headline + email). Projects overrides
+           this block with the fractal. Reads `profile` + `ident` set at the top of the file. #}
+        {% block sidebar %}
+        <style>
+          /* Sidebar links (e.g. the email) match the sidebar text rather than the site's
+             green; the base a:hover still turns them green on hover, like the nav. */
+          #header a { color: inherit; }
+        </style>
+        <div class="inner">
+          <a href="/" class="image avatar"><img src="{{ profile.avatar | safe }}" alt="" /></a>
+          {% if ident.name %}<h1><strong>{{ ident.name }}</strong></h1>{% endif %}
+          {% for line in ident.headline | default(value=[]) %}{{ line | safe }}<br />
+          {% endfor %}
+          {% if ident.email %}Email: <a href="mailto:{{ ident.email }}">{{ ident.email }}</a>{% endif %}
+        </div>
+        {% endblock sidebar %}
       </header>
 
-    <!-- Nav bar -->
-      {% include "components/navbar.html" %}
+    <!-- Nav bar (sits above #main; mirrors #main's left offset/padding per breakpoint;
+         data-driven from [[extra.nav]] in config.toml, highlighting the current page) -->
+      <style>
+        .navbar { margin-left: 35%; padding: 2em 4em 0.9em 4em; border-bottom: solid 1px #e7e7e7;
+          font-size: 0.8em; letter-spacing: 0.15em; text-transform: uppercase; }
+        .navbar a { color: #b0b0b0; border-bottom: 0; margin-right: 1.75em; }
+        .navbar a:hover { color: #49bf9d; }
+        .navbar a.active { color: #4a4a4a; }
+        @media screen and (max-width: 1280px) { .navbar { margin-left: 30%; padding: 1.75em 3em 0.9em 3em; } }
+        @media screen and (max-width: 980px)  { .navbar { margin-left: 0;   padding: 1.5em 4em 0.9em 4em; } }
+        @media screen and (max-width: 736px)  { .navbar { padding: 1.25em 1.5em 0.7em 1.5em; } }
+      </style>
+      {% if config.extra.nav %}
+      <nav class="navbar">
+        {% for item in config.extra.nav %}<a href="{{ item.link | safe }}"{% if current_path is defined and current_path == item.link %} class="active"{% endif %}>{{ item.name }}</a>{% endfor %}
+      </nav>
+      {% endif %}
 
     <!-- Main panel -->
       <div id="main">
