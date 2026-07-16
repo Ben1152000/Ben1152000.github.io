@@ -1,0 +1,10 @@
+{# Left panel — identity version: avatar + name + headline + email.
+   Reads `profile` (config.toml [extra.profile]) and `ident` (per-page identity),
+   both set by base.html before this is included. #}
+<div class="inner">
+  <a href="/" class="image avatar"><img src="{{ profile.avatar | safe }}" alt="" /></a>
+  {% if ident.name %}<h1><strong>{{ ident.name }}</strong></h1>{% endif %}
+  {% for line in ident.headline | default(value=[]) %}{{ line }}<br />
+  {% endfor %}
+  {% if ident.email %}Email: <a href="mailto:{{ ident.email }}">{{ ident.email }}</a>{% endif %}
+</div>

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% import "components/macros.html" as ui %}
+{% block title %}{{ section.extra.name }}{% endblock title %}
+
+{# About page. Left panel defaults to the identity component (from base.html).
+   Content lives in content/_index.md [extra]; education + experience rows use the entry macro. #}
+{% block main %}
+{% set data = section.extra %}
+
+  <!-- About -->
+    <section id="about">
+      <header class="major">
+        <h2>About Me</h2>
+      </header>
+      {% for para in data.about %}
+      <p>{{ para | safe }}</p>
+      {% endfor %}
+    </section>
+
+  <!-- Education -->
+    {% if data.education %}
+    <section id="education">
+      <div class="container">
+        <h2>Education</h2>
+        {% for e in data.education %}{{ ui::entry(title=e.degree, subtitle=e.institution, logo=e.logo | default(value=""), dates=e.dates | default(value=""), note=e.note | default(value="")) }}{% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  <!-- Experience -->
+    {% if data.experience %}
+    <section id="experience">
+      <div class="container">
+        <h2>Experience</h2>
+        {% for x in data.experience %}{{ ui::entry(title=x.role, subtitle=x.org, logo=x.logo | default(value=""), dates=x.dates | default(value=""), note=x.highlights | default(value=[]) | join(sep="<br />")) }}{% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  <!-- Publications -->
+    {% if data.publications %}
+    <section id="publications">
+      <style>
+        #publications .publication { border: solid 1px #e2e2e2; border-radius: 0.4rem;
+          padding: 1rem; margin-bottom: 1rem; }
+        #publications .pub-head { display: flex; flex-wrap: wrap; align-items: center;
+          gap: 0.5rem; margin-bottom: 0.35rem; }
+        #publications .pub-title { font-weight: 600; margin-right: 4px; }
+        #publications .pub-link { border: solid 1px #49bf9d; color: #49bf9d; border-radius: 999px;
+          padding: 3px 12px; line-height: 1; display: inline-flex; align-items: center; }
+        #publications .pub-link:hover { background: #49bf9d; color: #fff !important; }
+        #publications .pub-link small { font-size: 0.7rem; }
+        #publications .pub-meta { font-size: 0.9rem; }
+      </style>
+      <div class="container">
+        <h2>Publications</h2>
+        {% for p in data.publications %}
+        <div class="publication">
+          <div class="pub-head">
+            <span class="pub-title">{{ p.name }}</span>
+            {% if p.url %}<a href="{{ p.url | safe }}" class="pub-link" target="_blank" rel="noopener noreferrer"><small>{{ p.link_label | default(value="Paper") }}</small></a>{% endif %}
+          </div>
+          <span class="pub-meta">{% if p.authors %}{{ p.authors | safe }}, {% endif %}{% if p.venue %}<i>{{ p.venue }}</i>{% endif %}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  <!-- Awards -->
+    {% if data.awards %}
+    <section id="awards">
+      <div class="container">
+        <h2>Honors &amp; Awards</h2>
+        <ul>
+          {% for a in data.awards %}
+          <li><b>{{ a.title }}</b>{% if a.date %} ({{ a.date }}){% endif %}{% if a.note %} &mdash; {{ a.note }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    {% endif %}
+{% endblock main %}

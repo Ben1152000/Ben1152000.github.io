@@ -1,0 +1,18 @@
+{# Top-bar nav. Sits above #main; mirrors #main's left offset + horizontal padding
+   at each Strata breakpoint so it stays aligned with the content column.
+   Data-driven from [[extra.nav]] in config.toml; highlights the current page. #}
+<style>
+  .navbar { margin-left: 35%; padding: 2em 4em 0.9em 4em; border-bottom: solid 1px #e7e7e7;
+    font-size: 0.8em; letter-spacing: 0.15em; text-transform: uppercase; }
+  .navbar a { color: #b0b0b0; border-bottom: 0; margin-right: 1.75em; }
+  .navbar a:hover { color: #49bf9d; }
+  .navbar a.active { color: #4a4a4a; }
+  @media screen and (max-width: 1280px) { .navbar { margin-left: 30%; padding: 1.75em 3em 0.9em 3em; } }
+  @media screen and (max-width: 980px)  { .navbar { margin-left: 0;   padding: 1.5em 4em 0.9em 4em; } }
+  @media screen and (max-width: 736px)  { .navbar { padding: 1.25em 1.5em 0.7em 1.5em; } }
+</style>
+{% if config.extra.nav %}
+<nav class="navbar">
+  {% for item in config.extra.nav %}<a href="{{ item.link | safe }}"{% if current_path is defined and current_path == item.link %} class="active"{% endif %}>{{ item.name }}</a>{% endfor %}
+</nav>
+{% endif %}

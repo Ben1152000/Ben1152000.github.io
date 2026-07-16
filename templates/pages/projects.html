@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Projects &middot; {{ config.title }}{% endblock title %}
+
+{# Left panel = the fractal (overrides the default identity).
+   Project data lives in [[extra.projects]] in config.toml. #}
+{% block sidebar %}{% include "components/left-fractal.html" %}{% endblock sidebar %}
+
+{# Keep the footer banner in sync with the sidebar: on narrow screens the sidebar and
+   footer stack as top/bottom banners — give the footer the same fractal (not the photo).
+   Hidden at wide widths, where the footer isn't a banner (the driver skips 0-size canvases). #}
+{% block footer_bg %}
+<style>
+  #footer .js-fractal { display: none; }
+  @media screen and (max-width: 980px) {
+    #footer { background-image: none !important; background-color: #000; position: relative; }
+    #footer .js-fractal { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%; z-index: 0; }
+    #footer > .inner { position: relative; z-index: 1; }
+  }
+</style>
+<canvas class="js-fractal">Your browser doesn't seem to support this canvas.</canvas>
+{% endblock footer_bg %}
+
+{% block main %}
+  <section id="projects">
+    <div class="container">
+      <header class="major">
+        <h2>Projects</h2>
+      </header>
+      <p>Some things I've built.</p>
+
+      <div class="row">
+        {% for p in config.extra.projects %}
+        <div class="col-6 col-12-medium">
+          <article class="project">
+            {% if p.image %}
+            <a href="{{ p.link | safe }}" class="image fit"><img src="{{ p.image | safe }}" alt="{{ p.name }}" /></a>
+            {% endif %}
+            <h3><a href="{{ p.link | safe }}">{{ p.name }}</a></h3>
+            <p>{{ p.description }}</p>
+          </article>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock main %}

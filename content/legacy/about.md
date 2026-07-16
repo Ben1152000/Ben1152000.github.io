@@ -1,7 +1,6 @@
 +++
 title = "About"
-path = "about"
-template = "page.html"
+template = "legacy/page.html"
 +++
 # About Me
 

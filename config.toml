@@ -17,14 +17,23 @@ theme = "catppuccin-mocha"
 
 [extra]
 
-# --- Site navigation (was Jekyll _data/navigation.yml) ---
+# --- Main-site nav (the subtle top bar in the Strata main column) ---
+[[extra.nav]]
+name = "About"
+link = "/"
+
+[[extra.nav]]
+name = "Projects"
+link = "/projects/"
+
+# --- Legacy site navigation (was Jekyll _data/navigation.yml) ---
 [[extra.navigation]]
 name = "About"
-link = "/about/"
+link = "/legacy/about/"
 
 [[extra.navigation]]
 name = "Projects"
-link = "/projects/"
+link = "/legacy/projects/"
 
 [[extra.navigation]]
 name = "Pi"
@@ -68,3 +77,24 @@ description = "A web-based tetris game and artificial intelligence."
 name = "Go (Url Shortener)"
 link = "http://go.bdarnell.com"
 description = "A toy URL-Shortener."
+
+# --- Profile / identity (drives the Strata header + footer) ---
+# Shared identity used by every Strata page's sidebar/footer.
+# (name / headline / email are per-page — see content/_index.md [extra].)
+[extra.profile]
+avatar = "/assets/images/portrait.jpg"
+
+[[extra.profile.social]]
+url = "https://github.com/Ben1152000"
+icon = "brands fa-github"
+label = "GitHub"
+
+[[extra.profile.social]]
+url = "https://www.linkedin.com/in/benjamin-darnell-33121b162/"
+icon = "brands fa-linkedin-in"
+label = "LinkedIn"
+
+[[extra.profile.social]]
+url = "mailto:ben@bdarnell.com"
+icon = "solid fa-envelope"
+label = "Email"

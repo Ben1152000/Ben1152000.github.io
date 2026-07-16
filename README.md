@@ -32,11 +32,18 @@ zola build
 
 | Path | Contents |
 |------|----------|
-| `config.toml` | Site config; nav links and project list live under `[extra]` |
-| `content/` | Pages (`about`, `projects`) and the `blag/` blog section |
-| `templates/` | Tera templates (`base`, `index`, `page`, `projects`, `blog`, `post`, `404`, `redirect`) |
-| `sass/` | SCSS sources; `styles.scss` compiles to `/styles.css` |
-| `static/` | Files served verbatim (under `static/assets/…`) |
+| `config.toml` | Site config; identity (`[extra.profile]`) and project list (`[[extra.projects]]`) live under `[extra]` |
+| `content/_index.md` | The homepage **content** (about / education / experience / publications / awards) as `[extra]` TOML — edit this, not the template |
+| `content/projects.md`, `strata.md`, `resume.md`, `cv.md` | The `/projects/` page and the `/strata` `/resume` `/cv` redirects |
+| `content/legacy/` | The previous (Jekyll-derived) site, archived at `/legacy/` |
+| `templates/strata.html` | The site **design** (HTML5 UP Strata shell); identity-driven, exposes a `main` block |
+| `templates/home.html`, `projects.html` | Page templates that extend `strata.html` |
+| `templates/legacy/` | Templates for the archived `/legacy/` site |
+| `templates/404.html`, `redirect.html` | Error page and the redirect helper |
+| `static/strata/` | The Strata theme, all in one dir — `css/ js/ webfonts/ images/ sass/` + license (served at `/strata/…`) |
+| `static/assets/` | Site images, docs, icons (served at `/assets/…`) |
+
+**Content vs. design:** the homepage's words live in `content/_index.md` `[extra]`; the layout lives in `templates/home.html` + `templates/strata.html`. Edit one without touching the other.
 
 ## Updating the resume / CV
 

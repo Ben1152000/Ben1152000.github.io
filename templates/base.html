@@ -1,33 +1,65 @@
-<!doctype html>
-<html>
+<!DOCTYPE HTML>
+<!--
+  Design: Strata by HTML5 UP (html5up.net | @ajlkn)
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license).
+  Design shell only. The page is composed from components in templates/components/:
+    - left panel  : the "sidebar" block (default = left-identity; projects = left-fractal)
+    - nav bar     : navbar.html (shared)
+    - main panel  : the "main" block (defined inline in home.html / projects.html)
+  Shared identity (avatar, social) comes from [extra.profile] in config.toml; per-page
+  name/headline/email come from the current page's own [extra] (fallback: the home page).
+-->
+{% set profile = config.extra.profile %}
+{% if section is defined %}{% set ident = section.extra %}{% elif page is defined and page.extra.name %}{% set ident = page.extra %}{% else %}{% set home = get_section(path="_index.md") %}{% set ident = home.extra %}{% endif %}
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="date" content="07/08/20">
-    <meta name="flag" content="stay_out_of_my_source_code_saagar">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-    <link rel="stylesheet" href="/styles.css">
-    <!-- Bootstrap: -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" async>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js" async></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" async></script>
-
-    <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico">
-    <link rel="icon" href="/assets/icons/ben-icon_32.ico">
-    <!-- Font Awesome (icons): -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" async>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico" />
+    <link rel="icon" href="/assets/icons/ben-icon_32.ico" />
+    <!-- Preload the header background per layout so the first paint isn't a fallback flash. -->
+    <link rel="preload" as="image" href="/assets/images/bg-sm.webp" media="(min-width: 981px)" />
+    <link rel="preload" as="image" href="/assets/images/bg-md.webp" media="(max-width: 980px)" />
+    <link rel="stylesheet" href="/strata/css/main.css" />
   </head>
-  <body>
-    <header class="sticky-top">
-      {% include "navigation.html" %}
-    </header>
-    <main>
-      {% block content %}{% endblock content %}
-    </main>
-    <footer>
-      {% include "footer.html" %}
-    </footer>
+  <body class="is-preload">
+
+    <!-- Left panel -->
+      <header id="header">
+        {% block sidebar %}{% include "components/left-identity.html" %}{% endblock sidebar %}
+      </header>
+
+    <!-- Nav bar -->
+      {% include "components/navbar.html" %}
+
+    <!-- Main panel -->
+      <div id="main">
+        {% block main %}{% endblock main %}
+      </div>
+
+    <!-- Footer -->
+      <footer id="footer">
+        {% block footer_bg %}{% endblock footer_bg %}
+        <div class="inner">
+          <ul class="icons">
+            {% for s in profile.social %}
+            <li><a href="{{ s.url | safe }}" class="icon {{ s.icon }}"><span class="label">{{ s.label }}</span></a></li>
+            {% endfor %}
+          </ul>
+          <ul class="copyright">
+            <li>&copy; {{ ident.name | default(value=config.title) }}</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+
+    <!-- Scripts -->
+      <script src="/strata/js/jquery.min.js"></script>
+      <script src="/strata/js/jquery.poptrox.min.js"></script>
+      <script src="/strata/js/browser.min.js"></script>
+      <script src="/strata/js/breakpoints.min.js"></script>
+      <script src="/strata/js/util.js"></script>
+      <script src="/strata/js/main.js"></script>
+
   </body>
 </html>

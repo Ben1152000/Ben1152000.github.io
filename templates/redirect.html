@@ -1,13 +1,15 @@
+{# Works for both page and section contexts (e.g. the root _index.md). #}
+{% if page is defined %}{% set target = page.extra.target %}{% else %}{% set target = section.extra.target %}{% endif %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Redirecting&hellip;</title>
-    <link rel="canonical" href="{{ page.extra.target | safe }}">
-    <meta http-equiv="refresh" content="0; url={{ page.extra.target | safe }}">
+    <link rel="canonical" href="{{ target | safe }}">
+    <meta http-equiv="refresh" content="0; url={{ target | safe }}">
     <meta name="robots" content="noindex">
   </head>
   <body>
-    <p>Redirecting to <a href="{{ page.extra.target | safe }}">{{ page.extra.target }}</a>&hellip;</p>
+    <p>Redirecting to <a href="{{ target | safe }}">{{ target }}</a>&hellip;</p>
   </body>
 </html>
