@@ -20,8 +20,9 @@ headline = [
 email = "ben@bdarnell.com"
 
 about = [
-  "<span style=\"color: red;\"> I'm a Ph.D. student in Computer Science at the University of Illinois Urbana-Champaign, advised by Prof. Vikram Adve. My research is in programming languages and compilers, where I work on compiler optimization, code generation, and applying machine learning to programming-language problems. </span>",
-  "<span style=\"color: red;\">Before Illinois I earned my B.S. in Computing with Highest Honors from UC Santa Barbara, where I did research in programming languages with Prof. Ben Hardekopf and in computer architecture with Prof. Jonathan Balkind. I also spent a semester as an exchange student at the Technion in Haifa, Israel. </span>",
+  "<span style=\"color: red;\">EDIT THIS SECTION</span>",
+  "I'm a Ph.D. student in Computer Science at the University of Illinois Urbana-Champaign, advised by Prof. Vikram Adve. My research is in programming languages and compilers, where I work on compiler optimization, code generation, and applying machine learning to programming-language problems.",
+  "Before Illinois I earned my B.S. in Computing with Highest Honors from UC Santa Barbara, where I did research in programming languages with Prof. Ben Hardekopf and in computer architecture with Prof. Jonathan Balkind. I also spent a semester as an exchange student at the Technion in Haifa, Israel.",
 ]
 
 [[extra.education]]

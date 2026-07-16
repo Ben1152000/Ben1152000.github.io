@@ -80,5 +80,26 @@
       <script src="/strata/js/util.js"></script>
       <script src="/strata/js/main.js"></script>
 
+    <style>
+      /* Dark mode — follows the browser's prefers-color-scheme. Overrides the light
+         surfaces the site actually uses (main content, cards, dividers, nav); the sidebar
+         is already dark (photo + overlay). Placed at end of <body> so it wins over the
+         component <style> blocks by source order. Tune the palette below to taste. */
+      @media (prefers-color-scheme: dark) {
+        body { background: #141618; }
+        body, input, select, textarea { color: #b7bcc5; }
+        h1, h2, h3, h4, h5, h6, strong, b { color: #edeff3; }
+        #main > section { border-top-color: #282b33; }
+
+        .navbar { border-bottom-color: #282b33; }
+        .navbar a.active { color: #e6e8ec; }
+
+        #publications .publication { border-color: #282b33; }
+
+        #projects .project-row { border-top-color: #282b33; }
+        #projects .project-thumb-empty { background: #21242a; color: #4a4d55; }
+      }
+    </style>
+
   </body>
 </html>
