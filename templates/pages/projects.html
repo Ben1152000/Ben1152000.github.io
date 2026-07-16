@@ -4,42 +4,66 @@
 {# Left panel = the fractal (overrides the default identity).
    Project data lives in [[extra.projects]] in config.toml. #}
 {% block sidebar %}{% include "components/left-fractal.html" %}{% endblock sidebar %}
-
-{# Keep the footer banner in sync with the sidebar: on narrow screens the sidebar and
-   footer stack as top/bottom banners — give the footer the same fractal (not the photo).
-   Hidden at wide widths, where the footer isn't a banner (the driver skips 0-size canvases). #}
-{% block footer_bg %}
-<style>
-  #footer .js-fractal { display: none; }
-  @media screen and (max-width: 980px) {
-    #footer { background-image: none !important; background-color: #000; position: relative; }
-    #footer .js-fractal { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      width: 100%; height: 100%; z-index: 0; }
-    #footer > .inner { position: relative; z-index: 1; }
-  }
-</style>
-<canvas class="js-fractal">Your browser doesn't seem to support this canvas.</canvas>
-{% endblock footer_bg %}
+{# No footer, and no top/bottom banners — only the wide-screen fractal sidebar is kept.
+   (See the layout CSS in the section below.) #}
+{% block footer %}{% endblock footer %}
 
 {% block main %}
   <section id="projects">
+<style>
+  /* No top/bottom banners on this page: remove the footer, and on narrow screens hide the
+     header (which would otherwise become the top banner). The wide-screen sidebar stays. */
+  #footer { display: none; }
+  @media screen and (max-width: 980px) { #header { display: none; } }
+
+  #projects .project-list { margin-top: 1.5em; }
+  #projects .project-row { display: flex; gap: 1.75em; align-items: center;
+    padding: 1.75em 0; border-top: solid 1px #e5e5e7; }
+  #projects .project-row:first-child { border-top: 0; padding-top: 0.25em; }
+  /* thumbnail (or a neutral placeholder when a project has no image) */
+  #projects .project-thumb, #projects .project-thumb-empty {
+    flex: 0 0 auto; width: 210px; height: 125px; border-radius: 0.4rem; overflow: hidden; }
+  #projects .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #projects .project-thumb-empty { display: flex; align-items: center; justify-content: center;
+    background: #f0f0f2; color: #c4c4cc; font-size: 2em; }
+  #projects .project-info { flex: 1 1 auto; min-width: 0; }
+  #projects .project-name { margin: 0 0 0.2em; font-weight: 600; }
+  #projects .project-desc { margin: 0 0 0.8em; font-size: 0.95em; }
+  #projects .project-links { display: flex; flex-wrap: wrap; gap: 0.5em; }
+  #projects .project-link { display: inline-flex; align-items: center; gap: 0.45em; white-space: nowrap;
+    border: solid 1px #49bf9d; color: #49bf9d; border-radius: 999px; padding: 4px 13px; font-size: 0.78em; }
+  #projects .project-link:hover { background: #49bf9d; color: #fff !important; }
+  @media screen and (max-width: 736px) {
+    #projects .project-row { flex-direction: column; align-items: stretch; }
+    #projects .project-thumb, #projects .project-thumb-empty { width: 100%; height: 170px; }
+  }
+</style>
     <div class="container">
       <header class="major">
         <h2>Projects</h2>
       </header>
       <p>Some things I've built.</p>
 
-      <div class="row">
-        {% for p in config.extra.projects %}
-        <div class="col-6 col-12-medium">
-          <article class="project">
-            {% if p.image %}
-            <a href="{{ p.link | safe }}" class="image fit"><img src="{{ p.image | safe }}" alt="{{ p.name }}" /></a>
+      <div class="project-list">
+        {% for p in page.extra.projects %}
+        <article class="project-row">
+          {% if p.image %}
+          <div class="project-thumb"><img src="{{ p.image | safe }}" alt="{{ p.name }}" /></div>
+          {% else %}
+          <div class="project-thumb-empty"><i class="fas fa-code"></i></div>
+          {% endif %}
+          <div class="project-info">
+            <h3 class="project-name">{{ p.name }}</h3>
+            <p class="project-desc">{{ p.description }}</p>
+            {% if p.links %}
+            <div class="project-links">
+              {% for l in p.links %}
+              <a class="project-link" href="{{ l.url | safe }}" target="_blank" rel="noopener noreferrer">{% if l.icon %}<i class="{{ l.icon }}"></i>{% endif %}{% if l.label %}<span>{{ l.label }}</span>{% endif %}</a>
+              {% endfor %}
+            </div>
             {% endif %}
-            <h3><a href="{{ p.link | safe }}">{{ p.name }}</a></h3>
-            <p>{{ p.description }}</p>
-          </article>
-        </div>
+          </div>
+        </article>
         {% endfor %}
       </div>
     </div>

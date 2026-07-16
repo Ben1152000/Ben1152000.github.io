@@ -9,12 +9,14 @@
 
   <!-- About -->
     <section id="about">
-      <header class="major">
-        <h2>About Me</h2>
-      </header>
-      {% for para in data.about %}
-      <p>{{ para | safe }}</p>
-      {% endfor %}
+      <div class="container">
+        <header class="major">
+          <h2>About Me</h2>
+        </header>
+        {% for para in data.about %}
+        <p>{{ para | safe }}</p>
+        {% endfor %}
+      </div>
     </section>
 
   <!-- Education -->

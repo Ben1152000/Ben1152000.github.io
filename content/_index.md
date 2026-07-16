@@ -12,14 +12,16 @@ template = "pages/home.html"
 # About/home page owns it; other pages fall back to just the avatar + social.
 name = "Benjamin Darnell"
 headline = [
-  "Graduate Student, Computer Science",
-  "University of Illinois Urbana-Champaign",
+  # &nbsp; keeps "Computer Science" together; &#8209; is a non-breaking hyphen for "Urbana-Champaign"
+  # — so when the sidebar is narrow, each line wraps before the last unit instead of splitting it.
+  "Graduate Student, Computer&nbsp;Science",
+  "University of Illinois Urbana&#8209;Champaign",
 ]
 email = "ben@bdarnell.com"
 
 about = [
-  "I'm a Ph.D. student in Computer Science at the University of Illinois Urbana-Champaign, advised by Prof. Vikram Adve. My research is in programming languages and compilers, where I work on compiler optimization, code generation, and applying machine learning to programming-language problems.",
-  "Before Illinois I earned my B.S. in Computing with Highest Honors from UC Santa Barbara, where I did research in programming languages with Prof. Ben Hardekopf and in computer architecture with Prof. Jonathan Balkind. I also spent a semester as an exchange student at the Technion in Haifa, Israel.",
+  "<span style=\"color: red;\"> I'm a Ph.D. student in Computer Science at the University of Illinois Urbana-Champaign, advised by Prof. Vikram Adve. My research is in programming languages and compilers, where I work on compiler optimization, code generation, and applying machine learning to programming-language problems. </span>",
+  "<span style=\"color: red;\">Before Illinois I earned my B.S. in Computing with Highest Honors from UC Santa Barbara, where I did research in programming languages with Prof. Ben Hardekopf and in computer architecture with Prof. Jonathan Balkind. I also spent a semester as an exchange student at the Technion in Haifa, Israel. </span>",
 ]
 
 [[extra.education]]
