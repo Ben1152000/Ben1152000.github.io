@@ -68,16 +68,26 @@ uniform float height;
 
 #define ORIGIN vec2(-0.05026782, 0.6721055)
 #define ORIGIN_SMALL vec2(1e-16, -1.5e-19)
-#define BRIGHTNESS 200.0
+#define BRIGHTNESS 500.0
+
+// linear-space color for one sub-pixel sample
+vec3 shadeAt( vec2 fragCoord, vec2 resolution, float curr_zoom ) {
+  vec2 coord = (2.0 * fragCoord - resolution) / (curr_zoom * resolution.y);
+  iterdist i = mandelbrot(vec4(ORIGIN, coord + ORIGIN_SMALL));
+  float shade = min(i.dist * BRIGHTNESS * curr_zoom, 1.0);
+  return color(i.iter) * float(i.iter >= 0.0) * shade;
+}
 
 void main()
 {
   vec2 resolution = vec2(width, height);
   vec2 fragCoord = v_coords * resolution;
-
   float curr_zoom = zoom(time);
-  vec2 coord = (2.0*fragCoord - resolution) / (curr_zoom * resolution.y);
-  iterdist i = mandelbrot(vec4(ORIGIN, coord + ORIGIN_SMALL));
-  float shade = min(i.dist * BRIGHTNESS * curr_zoom, 1.0);
-  gl_FragColor = vec4(sqrt(color(i.iter) * float(i.iter >= 0.0) * shade), 1.0);
+
+  // 2-tap diagonal supersample, averaged in linear space then gamma-encoded
+  vec3 lin = 0.5 * (
+    shadeAt(fragCoord + vec2(-0.25, -0.25), resolution, curr_zoom) +
+    shadeAt(fragCoord + vec2( 0.25,  0.25), resolution, curr_zoom)
+  );
+  gl_FragColor = vec4(sqrt(lin), 1.0);
 }
