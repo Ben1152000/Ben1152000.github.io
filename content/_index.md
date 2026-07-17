@@ -14,15 +14,14 @@ name = "Benjamin Darnell"
 headline = [
   # &nbsp; keeps "Computer Science" together; &#8209; is a non-breaking hyphen for "Urbana-Champaign"
   # — so when the sidebar is narrow, each line wraps before the last unit instead of splitting it.
-  "Graduate Student, Computer&nbsp;Science",
+  "M.S., Computer&nbsp;Science",
   "University of Illinois Urbana&#8209;Champaign",
 ]
 email = "ben@bdarnell.com"
 
 about = [
-  "<span style=\"color: red;\">EDIT THIS SECTION</span>",
-  "I'm a Ph.D. student in Computer Science at the University of Illinois Urbana-Champaign, advised by Prof. Vikram Adve. My research is in programming languages and compilers, where I work on compiler optimization, code generation, and applying machine learning to programming-language problems.",
-  "Before Illinois I earned my B.S. in Computing with Highest Honors from UC Santa Barbara, where I did research in programming languages with Prof. Ben Hardekopf and in computer architecture with Prof. Jonathan Balkind. I also spent a semester as an exchange student at the Technion in Haifa, Israel.",
+  "I recently earned my M.S. in Computer Science from the University of Illinois Urbana-Champaign, where my research focused on programming languages and compilers, including compiler optimization, code generation, and machine learning for programming-language problems. Lately I've been building <a href='https://openmander.org' target='_blank' rel='noopener noreferrer'>OpenMander</a>, an interactive tool that brings state-of-the-art optimization algorithms to congressional redistricting.",
+  "Before Illinois, I attended UC Santa Barbara's College of Creative Studies, where I researched programming languages with Prof. Ben Hardekopf and computer architecture with Prof. Jonathan Balkind, and spent a semester as an exchange student at the Technion in Haifa, Israel. Outside of research, I enjoy making maps, gardening, playing bridge, and spending time with my cat, <a href='/assets/images/barbara-sm.jpeg' target='_blank' rel='noopener noreferrer'>Barbara</a>.",
 ]
 
 [[extra.education]]
@@ -42,12 +41,12 @@ institution = "University of California, Santa Barbara — College of Creative S
 logo = "/assets/images/logos/technion.jpg"
 degree = "Exchange Student"
 institution = "Technion — Israel Institute of Technology"
-dates = "Spring 2022"
+# dates = "Spring 2022"
 
 [[extra.experience]]
 role = "Graduate Research Assistant"
 org = "University of Illinois Urbana-Champaign"
-dates = "2022 – Present"
+dates = "2022 – 2026"
 # highlights = [
 #   "Built a high-performance graph-partitioning engine in Rust for multi-objective partitioning via heuristic local search.",
 #   "Led research on LLM-based code generation for low-resource programming languages (Ansible).",
@@ -109,34 +108,34 @@ logo = "/assets/images/logos/lanl-logo.png"
 [[extra.publications]]
 name = "An Empirical Comparison of Code Generation Approaches for Ansible"
 authors = "<b>Benjamin Darnell</b>, Hetarth Chopra, Aaron Councilman, David Grove, Yu-Xiong Wang, and Vikram Adve"
-venue = "InteNSE '24 (ACM/IEEE), 2024"
+venue = "InteNSE (ACM/IEEE), 2024"
 url = "https://dl.acm.org/doi/10.1145/3643661.3643951"
 
 [[extra.publications]]
 name = "Control Logic Synthesis: Drawing the Rest of the OWL"
 authors = "Zachary D. Sisco, Andrew David Alex, Zechen Ma, Yeganeh Aghamohammadi, Boming Kong, <b>Benjamin Darnell</b>, Timothy Sherwood, Ben Hardekopf, and Jonathan Balkind"
-venue = "ASPLOS '24 (ACM), 2024"
+venue = "ASPLOS (ACM), 2024"
 url = "https://doi.org/10.1145/3622781.3674170"
 
 [[extra.publications]]
 name = "Automatic Problem Creation"
 authors = "<b>Benjamin Darnell</b> and Ben Hardekopf"
-venue = "RACA-CON 2020"
+venue = "RACA-CON, 2020"
 url = "https://raca-con.ccs.ucsb.edu/projects/automatic-problem-creation"
 link_label = "Poster"
 
 [[extra.awards]]
-title = "UC Regents Scholarship"
-date = "2018"
-note = "Awarded to the top 1% of admitted students"
-
-[[extra.awards]]
-title = "UCEAP Memorial Scholarship, in Memory of John Marcum"
+title = "UCEAP Memorial Scholar, in Memory of John Marcum"
 date = "2021"
 
 [[extra.awards]]
-title = "CCS Summer Undergraduate Research Fellowship"
+title = "CCS Summer Undergraduate Research Fellow"
 date = "2020"
+
+[[extra.awards]]
+title = "UC Regents Scholar"
+date = "2018"
+# note = "Awarded to the top 1% of admitted students"
 
 [[extra.awards]]
 title = "National Merit Commended Scholar"

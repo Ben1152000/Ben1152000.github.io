@@ -16,11 +16,13 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!-- <link rel="shortcut icon" href="/assets/icons/ben-icon_16.ico" /> -->
-    <!-- <link rel="icon" href="/assets/icons/ben-icon_32.ico" /> -->
-    <!-- Preload the header background per layout so the first paint isn't a fallback flash. -->
-    <link rel="preload" as="image" href="/assets/images/bg-sm.webp" media="(min-width: 981px)" />
-    <link rel="preload" as="image" href="/assets/images/bg-md.webp" media="(max-width: 980px)" />
+    <!-- Empty data-URI favicon: no icon shown, and stops the browser's automatic
+         /favicon.ico request (which would otherwise 404). -->
+    <link rel="icon" href="data:," />
+    <!-- Preload BOTH header backgrounds (no media filter) so the first paint isn't a fallback
+         flash and switching layouts on resize is instant. Costs one extra ~470 KB image up front. -->
+    <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-sm.webp" />
+    <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-md.webp" />
     <link rel="stylesheet" href="/strata/css/main.css" />
     <style>
       /* Slight extra darkening over the sidebar / footer background image.

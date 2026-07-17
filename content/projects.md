@@ -10,13 +10,21 @@ template = "pages/projects.html"
 [extra]
 
 [[extra.projects]]
-name = "Lumina"
-image = "/assets/images/projects/lumina.jpg"
-description = "A raspberry-pi web server to remotely control LED strips."
+name = "OpenMander"
+image = "/assets/images/projects/openmander.png"
+description = "Openmander is an interactive automated redistricting app that lets you draw congressional district maps for all US states."
+  [[extra.projects.links]]
+  label = "GitHub"
+  icon = "fab fa-github"
+  url = "https://github.com/Ben1152000/openmander-core"
+  [[extra.projects.links]]
+  label = "PyPI"
+  icon = "fab fa-python"
+  url = "https://pypi.org/project/openmander/"
   [[extra.projects.links]]
   label = "Live"
   icon = "fas fa-external-link-alt"
-  url = "http://pi.bdarnell.com:7990"
+  url = "https://openmander.org"
 
 [[extra.projects]]
 name = "Sootty"
@@ -32,6 +40,32 @@ description = "Command-line tool that converts VCD waveforms to vector images an
   url = "https://pypi.org/project/sootty/"
 
 [[extra.projects]]
+name = "Lumina"
+image = "/assets/images/projects/lumina.jpg"
+description = "A raspberry-pi web server to remotely control LED strips."
+  [[extra.projects.links]]
+  label = "GitHub"
+  icon = "fab fa-github"
+  url = "https://github.com/Ben1152000/lumina"
+  # [[extra.projects.links]]
+  # label = "Live"
+  # icon = "fas fa-external-link-alt"
+  # url = "http://pi.bdarnell.com:7990"
+
+[[extra.projects]]
+name = "Cartesia"
+image = "/assets/images/projects/cartesia.png"
+description = "An online, interactive D&D mapping tool developed during the COVID-19 pandemic to assist GM's in holding remote games."
+  [[extra.projects.links]]
+  label = "GitHub"
+  icon = "fab fa-github"
+  url = "https://github.com/Ben1152000/cartesia"
+  [[extra.projects.links]]
+  label = "Live"
+  icon = "fas fa-external-link-alt"
+  url = "http://cartesia.bdarnell.com"
+
+[[extra.projects]]
 name = "π2c"
 description = "A prototype python-to-c transpiler."
   [[extra.projects.links]]
@@ -39,29 +73,20 @@ description = "A prototype python-to-c transpiler."
   icon = "fab fa-github"
   url = "https://github.com/Ben1152000/py2c"
 
-[[extra.projects]]
-name = "Cartesia"
-image = "/assets/images/projects/cartesia.png"
-description = "An online, interactive D&D mapping tool developed during the COVID-19 pandemic to assist GM's in holding remote games."
-  [[extra.projects.links]]
-  label = "Live"
-  icon = "fas fa-external-link-alt"
-  url = "http://cartesia.bdarnell.com"
+# [[extra.projects]]
+# name = "Tetris"
+# image = "/assets/images/projects/tetris.png"
+# description = "A web-based tetris game and artificial intelligence."
+#   [[extra.projects.links]]
+#   label = "Live"
+#   icon = "fas fa-external-link-alt"
+#   url = "//tetris.bdarnell.com"
 
-[[extra.projects]]
-name = "Tetris"
-image = "/assets/images/projects/tetris.png"
-description = "A web-based tetris game and artificial intelligence."
-  [[extra.projects.links]]
-  label = "Live"
-  icon = "fas fa-external-link-alt"
-  url = "//tetris.bdarnell.com"
-
-[[extra.projects]]
-name = "Go (Url Shortener)"
-description = "A toy URL-Shortener."
-  [[extra.projects.links]]
-  label = "Live"
-  icon = "fas fa-external-link-alt"
-  url = "http://go.bdarnell.com"
-+++
+# [[extra.projects]]
+# name = "Go (Url Shortener)"
+# description = "A toy URL-Shortener."
+#   [[extra.projects.links]]
+#   label = "Live"
+#   icon = "fas fa-external-link-alt"
+#   url = "http://go.bdarnell.com"
+# +++

@@ -8,6 +8,11 @@
 
   <!-- About -->
     <section id="about">
+      <style>
+        /* Prose links here match the body text and only turn green on hover
+           (the theme's a:hover already supplies the green). */
+        #about a { color: inherit; }
+      </style>
       <div class="container">
         <header class="major">
           <h2>About Me</h2>
@@ -88,7 +93,7 @@
         <h2>Honors &amp; Awards</h2>
         <ul>
           {% for a in data.awards %}
-          <li><b>{{ a.title }}</b>{% if a.date %} ({{ a.date }}){% endif %}{% if a.note %} &mdash; {{ a.note }}{% endif %}</li>
+          <li><b>{{ a.title }}</b>{% if a.date %}<span style="margin: 0 0.6em;">&middot;</span><span class="meta">{{ a.date }}</span>{% endif %}{% if a.note %} &mdash; {{ a.note }}{% endif %}</li>
           {% endfor %}
         </ul>
       </div>
