@@ -30,8 +30,8 @@
 			xsmall:  [ null,      '480px'  ],
 		});
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
+	// Play initial animations once the DOM is ready (don't wait for images to finish loading).
+		$(function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);

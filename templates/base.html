@@ -21,9 +21,20 @@
     <link rel="icon" href="data:," />
     <!-- Preload BOTH header backgrounds (no media filter) so the first paint isn't a fallback
          flash and switching layouts on resize is instant. Costs one extra ~470 KB image up front. -->
-    <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-sm.webp" />
-    <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-md.webp" />
-    <link rel="stylesheet" href="/strata/css/main.css" />
+    <!-- <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-sm.webp" /> -->
+    <!-- <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-md.webp" /> -->
+    <!-- FontAwesome + body webfont loaded as parallel stylesheets (not @import-chained behind
+         main.css) so they don't block first paint. display=swap renders text in a fallback
+         font immediately, then swaps in Source Sans Pro when it arrives. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/strata/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic&display=swap" />
+    <!-- Layout/spacing skeleton loads render-blocking so the page paints in its final layout
+         immediately; the rest of the theme (components, grid, lightbox) loads async and fills in. -->
+    <link rel="stylesheet" href="/strata/css/core.css" />
+    <link rel="preload" as="style" href="/strata/css/main.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/strata/css/main.css" /></noscript>
     <style>
       /* Slight extra darkening over the sidebar / footer background image.
          One knob: raise --bg-darken toward 1 for darker, lower toward 0 for lighter. */
@@ -39,6 +50,26 @@
           background: rgba(0, 0, 0, var(--bg-darken));
         }
         #footer > .inner { position: relative; z-index: 1; }
+      }
+    </style>
+    <style>
+      /* Dark mode — follows the browser's prefers-color-scheme. In <head> so it applies at the
+         first paint (no light→dark flash under slow loads). Selectors are prefixed with `html`
+         to bump specificity by one, so they still win over the component <style> blocks further
+         down the document despite appearing earlier. Tune the palette to taste. */
+      @media (prefers-color-scheme: dark) {
+        html body { background: #141618; }
+        html body, html input, html select, html textarea { color: #b7bcc5; }
+        html h1, html h2, html h3, html h4, html h5, html h6, html strong, html b { color: #edeff3; }
+        html #main > section { border-top-color: #282b33; }
+
+        html .navbar { border-bottom-color: #282b33; }
+        html .navbar a.active { color: #e6e8ec; }
+
+        html #publications .publication { border-color: #282b33; }
+
+        html #projects .project-row { border-top-color: #282b33; }
+        html #projects .project-thumb-empty { background: #21242a; color: #4a4d55; }
       }
     </style>
   </head>
@@ -112,26 +143,6 @@
       <script src="/strata/js/util.js"></script>
       <script src="/strata/js/main.js"></script>
 
-    <style>
-      /* Dark mode — follows the browser's prefers-color-scheme. Overrides the light
-         surfaces the site actually uses (main content, cards, dividers, nav); the sidebar
-         is already dark (photo + overlay). Placed at end of <body> so it wins over the
-         component <style> blocks by source order. Tune the palette below to taste. */
-      @media (prefers-color-scheme: dark) {
-        body { background: #141618; }
-        body, input, select, textarea { color: #b7bcc5; }
-        h1, h2, h3, h4, h5, h6, strong, b { color: #edeff3; }
-        #main > section { border-top-color: #282b33; }
-
-        .navbar { border-bottom-color: #282b33; }
-        .navbar a.active { color: #e6e8ec; }
-
-        #publications .publication { border-color: #282b33; }
-
-        #projects .project-row { border-top-color: #282b33; }
-        #projects .project-thumb-empty { background: #21242a; color: #4a4d55; }
-      }
-    </style>
 
   </body>
 </html>

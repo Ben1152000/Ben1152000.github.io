@@ -11,7 +11,7 @@ template = "pages/projects.html"
 
 [[extra.projects]]
 name = "OpenMander"
-image = "/assets/images/projects/openmander.png"
+image = "/assets/images/projects/openmander-sm.png"
 description = "Openmander is an interactive automated redistricting app that lets you draw congressional district maps for all US states."
   [[extra.projects.links]]
   label = "GitHub"
@@ -41,7 +41,7 @@ description = "Command-line tool that converts VCD waveforms to vector images an
 
 [[extra.projects]]
 name = "Lumina"
-image = "/assets/images/projects/lumina.jpg"
+image = "/assets/images/projects/lumina-sm.jpg"
 description = "A raspberry-pi web server to remotely control LED strips."
   [[extra.projects.links]]
   label = "GitHub"
@@ -54,7 +54,7 @@ description = "A raspberry-pi web server to remotely control LED strips."
 
 [[extra.projects]]
 name = "Cartesia"
-image = "/assets/images/projects/cartesia.png"
+image = "/assets/images/projects/cartesia-sm.jpg"
 description = "An online, interactive D&D mapping tool developed during the COVID-19 pandemic to assist GM's in holding remote games."
   [[extra.projects.links]]
   label = "GitHub"
