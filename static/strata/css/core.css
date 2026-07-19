@@ -513,7 +513,7 @@ input, select, textarea {
 		background-position: top left,							top left;
 		background-repeat: repeat, no-repeat;
 		/* background-size: auto,								100%; */
-		background-size: auto calc(12vw + 100vh);
+		background-size: auto max(calc(12vw + 100vh), 54vw);
 		color: rgba(255, 255, 255, 0.8);
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 		height: 100%;
