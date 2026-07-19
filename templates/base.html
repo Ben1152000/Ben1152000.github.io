@@ -15,7 +15,8 @@
   <head>
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{% block description %}Benjamin Darnell — computer scientist with an M.S. from the University of Illinois Urbana-Champaign, working on programming languages and compilers, and creator of OpenMander.{% endblock description %}" />
     <!-- Empty data-URI favicon: no icon shown, and stops the browser's automatic
          /favicon.ico request (which would otherwise 404). -->
     <link rel="icon" href="data:," />
@@ -86,7 +87,7 @@
           #header a { color: inherit; }
         </style>
         <div class="inner">
-          <a href="/" class="image avatar"><img src="{{ profile.avatar | safe }}" alt="" /></a>
+          <a href="/" class="image avatar" aria-label="Home"><img src="{{ profile.avatar | safe }}" alt="" /></a>
           {% if ident.name %}<h1><strong>{{ ident.name }}</strong></h1>{% endif %}
           {% for line in ident.headline | default(value=[]) %}{{ line | safe }}<br />
           {% endfor %}
@@ -114,9 +115,9 @@
       {% endif %}
 
     <!-- Main panel -->
-      <div id="main">
+      <main id="main">
         {% block main %}{% endblock main %}
-      </div>
+      </main>
 
     <!-- Footer -->
       <footer id="footer">
