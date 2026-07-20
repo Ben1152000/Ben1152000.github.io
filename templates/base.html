@@ -20,10 +20,9 @@
     <!-- Empty data-URI favicon: no icon shown, and stops the browser's automatic
          /favicon.ico request (which would otherwise 404). -->
     <link rel="icon" href="data:," />
-    <!-- Preload BOTH header backgrounds (no media filter) so the first paint isn't a fallback
-         flash and switching layouts on resize is instant. Costs one extra ~470 KB image up front. -->
+    <!-- Single header background (bg-sm, cropped per layout via background-size/position).
+         Uncomment to preload it so the LCP image is discovered early on first paint. -->
     <!-- <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-sm.webp" /> -->
-    <!-- <link rel="preload" as="image" type="image/webp" href="/assets/images/bg-md.webp" /> -->
     <!-- FontAwesome + body webfont loaded as parallel stylesheets (not @import-chained behind
          main.css) so they don't block first paint. display=swap renders text in a fallback
          font immediately, then swaps in Source Sans Pro when it arrives. -->

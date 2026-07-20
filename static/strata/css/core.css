@@ -513,6 +513,8 @@ input, select, textarea {
 		background-position: top left,							top left;
 		background-repeat: repeat, no-repeat;
 		/* background-size: auto,								100%; */
+		/* Single wide bg-sm, cropped by the browser. Height calc keeps parallax headroom;
+		   the max(..., 54vw) floor fixes a coverage bug on short/wide viewports — keep it. */
 		background-size: auto max(calc(12vw + 100vh), 54vw);
 		color: rgba(255, 255, 255, 0.8);
 		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -694,7 +696,7 @@ input, select, textarea {
 
 			#header {
 				background-color: #c8ccd2;
-				background-image: url("images/overlay.png"), url("/assets/images/bg-md.webp");
+				background-image: url("images/overlay.png"), url("/assets/images/bg-sm.webp");
 				background-attachment: scroll;
 				background-position: top left, center center;
 				background-size: auto, cover;
@@ -720,7 +722,7 @@ input, select, textarea {
 			#footer {
 				background-attachment: scroll;
 				background-color: #c8ccd2;
-				background-image: url("images/overlay.png"), url("/assets/images/bg-md.webp");
+				background-image: url("images/overlay.png"), url("/assets/images/bg-sm.webp");
 				background-position: top left, bottom center;
 				background-repeat: repeat, no-repeat;
 				background-size: auto, cover;

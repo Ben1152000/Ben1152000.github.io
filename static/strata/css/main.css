@@ -2364,7 +2364,7 @@
 
 	body.is-touch #header {
 		background-color: #c8ccd2;
-		background-image: url("images/overlay.png"), url("/assets/images/bg-md.webp");
+		background-image: url("images/overlay.png"), url("/assets/images/bg-sm.webp");
 		background-attachment: scroll;
 		background-size: auto, cover;
 	}
