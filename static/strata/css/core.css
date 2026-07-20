@@ -510,7 +510,9 @@ input, select, textarea {
 		background-color: #c8ccd2;
 		background-attachment: scroll,								scroll;
 		background-image: url("images/overlay.png"), url("/assets/images/bg-sm.webp");
-		background-position: top left,							top left;
+		/* The 40% crop X must match the parallax background-position in strata/js/main.js
+		   (breakpoints.on('>medium')); otherwise the sidebar image flashes on reload. */
+		background-position: top left, 40% top;
 		background-repeat: repeat, no-repeat;
 		/* background-size: auto,								100%; */
 		/* Single wide bg-sm, cropped by the browser. Height calc keeps parallax headroom;

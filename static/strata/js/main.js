@@ -79,6 +79,8 @@
 
 				breakpoints.on('>medium', function() {
 
+					// The '40%' crop X must match #header's background-position in strata/css/core.css
+					// (the desktop rule); otherwise the sidebar image flashes on reload.
 					$header.css('background-position', '40% 0px');
 
 					$window.on('scroll.strata_parallax', function() {
